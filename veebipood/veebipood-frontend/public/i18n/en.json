@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Homepage",
+    "cart": "Cart",
+    "admin": "To admin view"
+  },
+  "home": {
+    "sortaz": "Sort AZ",
+    "sortza": "Sort ZA",
+    "sortpriceasc": "Sort price ascending",
+    "sortpricedesc": "Sort price descending"
+  }
+
+}

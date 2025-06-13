@@ -1,0 +1,40 @@
+<div>{{ currentDate | date:"dd.MM.yyyy hh:mm" }}</div>
+
+<div>Kokku: {{products.length}} tk</div>
+
+@for (category of categories; track category.id) {
+  <button [class.active-category]="activeCategoryId === category.id" (click)="filterByCategory(category)">{{category.name}}</button>
+}
+
+<button (click)="changeSort('name,asc')">{{"home.sortaz" | translate | uppercase}}</button>
+<button (click)="changeSort('name,desc')">{{"home.sortza" | translate}}</button>
+<button (click)="changeSort('price,asc')">{{"home.sortpriceasc" | translate}}</button>
+<button (click)="changeSort('price,desc')">{{"home.sortpricedesc" | translate}}</button>
+
+<br><br>
+
+<label>Otsi:</label>
+<input [(ngModel)]="searchInput" (ngModelChange)="search()" type="text">
+
+<br><br>
+
+@for (product of products; track product.id) {
+  <img class="image" src={{product.image}} alt="">
+  <div>{{product.name | shortener:5 }}</div>
+  <div>{{product.price}}</div>
+  @if (product.active) {
+    <button (click)="addToCart(product)" mat-flat-button>Lisa ostukorvi</button>
+  }
+}
+
+@if (loading) {
+  <div>Loading...</div>
+}
+
+@if (loading === false && products.length === 0) {
+  <div>Ühtegi toodet ei ole! Vaheta kategooriat.</div>
+}
+
+<button [disabled]="page === 0" (click)="prevPage()">Prev</button>
+<span>{{page+1}}</span>
+<button [disabled]="page+1 >= totalPages" (click)="nextPage()">Next</button>

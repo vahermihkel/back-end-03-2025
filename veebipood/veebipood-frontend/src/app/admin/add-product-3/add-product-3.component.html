@@ -1,0 +1,22 @@
+<div>{{message}}</div>
+
+<form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+  <label>Name</label>
+  <button type="button">i</button>
+  <br>
+  <input formControlName="name" type="text"> <br>
+  <label>Price</label> <br>
+  <input formControlName="price" type="number"> <br>
+  <label>Image</label> <br>
+  <input formControlName="image" type="text"> <br>
+  <label>Active</label> <br>
+  <input formControlName="active" type="checkbox"> <br>
+  <label>Category</label> <br>
+  <!-- <input type="number"> <br> -->
+   <select formControlName="category">
+      @for (category of categories; track category.id) {
+        <option [value]="category.id">{{category.name}}</option>
+      }
+   </select>
+  <button>Add</button>
+</form>

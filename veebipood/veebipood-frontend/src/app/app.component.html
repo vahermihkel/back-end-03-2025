@@ -1,0 +1,22 @@
+<button routerLink="/">{{"nav.home" | translate}}</button>
+<button routerLink="/cart">{{"nav.cart" | translate}}</button>
+@if (admin) {
+  <button routerLink="/admin">{{"nav.admin" | translate}}</button>
+}
+@if (!loggedIn) {
+  <button routerLink="/login">{{"nav.login" | translate}}</button>
+  <button routerLink="/signup">{{"nav.signup" | translate}}</button>
+} @else {
+  <button (click)="logout()">Logout</button>
+  <button routerLink="/orders">{{"nav.orders" | translate}}</button>
+}
+<button (click)="useLanguage('en')">English</button>
+<button (click)="useLanguage('et')">Estonian</button>
+
+<br><br>
+
+<router-outlet />
+
+<br><br>
+
+FOOTER

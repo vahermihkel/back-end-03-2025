@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <!-- <th>Is First</th>
+      <th>Is last</th> -->
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Active</th>
+      <th>Category</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (product of products; track product.id) {
+      <tr>
+        <!-- <td>{{$first}}</td>
+        <td>{{$last}}</td> -->
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.image}}</td>
+        <td>{{product.active}}</td>
+        <td>{{product.category?.name}}</td>
+        <td><button (click)="deleteProduct(product.id)">Delete</button></td>
+      </tr>
+    }
+  </tbody>
+</table>

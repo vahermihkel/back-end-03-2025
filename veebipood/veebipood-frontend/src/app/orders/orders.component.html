@@ -1,0 +1,8 @@
+@if (orders.length === 0) {
+  <div>Tellimused puuduvad</div>
+}
+
+@for (order of orders; track order.id) {
+  <div>ID: {{order.id}}</div>
+  <div>Price: {{order.totalSum}}</div>
+}

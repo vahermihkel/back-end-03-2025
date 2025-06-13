@@ -1,0 +1,10 @@
+<div>
+  <br>
+  <form (ngSubmit)="login()">
+      <label>Email:</label><br>
+      <input [(ngModel)]="loginForm.email" name="emailField" type="email" placeholder="Google@gmail.com"><br>
+      <label>Password:</label><br>
+      <input [(ngModel)]="loginForm.password" name="passwordField" type="password" placeholder="********"><br>
+      <button mat-flat-button color="primary" type="submit">Login</button>
+  </form>
+</div>

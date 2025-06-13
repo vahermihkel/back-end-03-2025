@@ -1,0 +1,18 @@
+@if (products.length > 0) {
+  <div>Tooteid ostukorvis: {{products.length}} tk</div>
+  <button (click)="emptyCart()">Tühjenda</button>
+} @else {
+  <div>Ostukorv on tühi. <span routerLink="/">Mine tooteid lisama</span></div>
+}
+
+@for (product of products; track $index) {
+  <img class="image" src={{product.image}} alt="">
+  <div>{{product.name}}</div>
+  <div>{{product.price}}</div>
+  <button (click)="deleteFromCart($index)">x</button>
+}
+
+@if (products.length > 0) {
+  <div>Summa kokku: {{calculateCartSum()}} €</div>
+  <button (click)="orderProducts()">Telli</button>
+}
